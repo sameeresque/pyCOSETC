@@ -108,8 +108,9 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
         driver.get("https://etc.stsci.edu/etc/input/cos/spectroscopic/")
         
-        
+        # Selecting the detector+grating combination based on the value of these inputs
         driver.find_element("xpath",".//input[@type='radio' and @value='{}_0{}']".format(detector,grating)).click()
+        # Selecting the central wavelength
         select=Select(driver.find_element("name",'{}_CentralWavelength'.format(grating.upper())))
 
         obs_wav = wav_int*(1.0+redshift_abs)
@@ -117,12 +118,12 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
         select.select_by_value('{}'.format(choose_wav))
 
-        
+        # Selecting the Aperture
         select=Select(driver.find_element("name",'cosaperture0'))
         select.select_by_value('{}'.format(aperturetype))
         
 
-
+        # Inputting the S/N ratio
         driver.find_element("xpath",".//input[@type='radio' and @value='Time']").click()
 
         snr=driver.find_element("name",'SNR')
@@ -130,6 +131,8 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         val = snrval
         snr.send_keys('{}'.format(val))
 
+        # determining the observed wavelength at which the expected S/N is desired. The following conditions ensure that the observed wavelength is within the disperser passbands.
+        
         central=driver.find_element("name",'obswave')
         central.clear()
 
@@ -168,16 +171,23 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
         central.send_keys('{}'.format(val))
 
-
+        # selecting the point source option
         driver.find_element("xpath",".//input[@type='radio' and @value='point']").click()
+
+
+        # selecting the SED of Non-Stellar Objects
         driver.find_element("xpath",".//input[@type='radio' and @value='SpectrumNonStellar']").click()
 
         select=Select(driver.find_element("name",'fnonstellar'))
+
+        # Selecting the QSO COS based spectrum
         select.select_by_value('QSO COS ')
 
+        # selecting the extinction relationship. Using an average Galactic extinction curve for diffuse ISM (Rv=3.1).
         select=Select(driver.find_element("name",'febmvtype'))
         select.select_by_value('mwavg')
 
+        # Inputting the extinction value and applying it before normalization.
         febv=driver.find_element("name",'febv')
         febv.clear()
         val = getdust(qso_ra,qso_dec).value
@@ -186,6 +196,8 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         select=Select(driver.find_element("name",'fextinctiontype'))
         select.select_by_value('before')
 
+
+        # The SED is redshifted based on this value.
         z=driver.find_element("name",'fRedshift')
         z.clear()
         val = redshift_qso
@@ -193,7 +205,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
         driver.find_element("xpath",".//input[@type='radio' and @value='fnormalize.bandpass']").click()
 
-
+        # normalizing the target flux. AB magnitudes and Galex/FUV.
         fuvmag=driver.find_element("name",'rn_flux_bandpass')
         fuvmag.clear()
         val = fuvval
@@ -206,6 +218,8 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         select=Select(driver.find_element("name",'filter.sloan'))
         select.select_by_value('Galex/FUV')
 
+
+        # Background levels for Zodiacal Light, Earth Shine, and Air Glow, all are set to Averages.
         driver.find_element("xpath",".//input[@type='radio' and @value='ZodiStandard']").click()
         select=Select(driver.find_element("name",'ZodiStandard'))
         select.select_by_value('Average')
@@ -226,7 +240,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         
         time = ps[2].string.split(' ')[3]
         
-        
+        #returns the time in seconds and number of orbits.
         try:
             return float(time.split(',')[0]+time.split(',')[1]),math.ceil(float(time.split(',')[0]+time.split(',')[1])/60./49.)
         except:
