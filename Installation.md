@@ -1,9 +1,13 @@
 # pyETC: Installing `pyETC`
 
-## **Install from GitHub via `pip`:**
+## **Download from GitHub and install via `pip`:**
 
 ```
-pip install git+https://github.com/sameeresque/pyETC.git
+git clone https://github.com/sameeresque/pyETC/
+cd pyETC
+pip install .
+
+(Note: pip will use setup.py to install your module. Avoid calling setup.py directly.)
 ```
 
 ## **Include `pyETC` in your `$PYTHONPATH`:**
