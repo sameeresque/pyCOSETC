@@ -14,7 +14,7 @@ Refer to the [Installation](Installation.md) documentation
 ## Prerequisites
 
 * [`Chrome driver`](https://chromedriver.chromium.org/downloads)
-Ensure version match of your Google Chrome. It can be found under Settings > About Chrome
+Ensure version match of your Google Chrome. It can be found under Settings > About Chrome. At least Version 112.x is needed to be compatible with the latest version of Selenium. 
 * [`Chrome binary location`](https://i.stack.imgur.com/yDGzQ.png)
 
 ## Setup
