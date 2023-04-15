@@ -14,9 +14,9 @@ Refer to the [Installation](Installation.md) documentation
 ## Prerequisites
 
 * [`Chrome driver`](https://chromedriver.chromium.org/downloads)
-The version of Google Chrome can be found under Settings > About Chrome
+Ensure version match of your Google Chrome. It can be found under Settings > About Chrome
 * [`Chrome binary location`](https://i.stack.imgur.com/yDGzQ.png)
 
 ## Setup
 
-Edit the chromepaths.py file to point to the paths of both the chrome driver and chrome binary location. 
+Edit the chromepaths.py file (located inside `etc` folder) to point to the paths of both the chrome driver and chrome binary location. 
