@@ -6,3 +6,7 @@ Refer to the Installation documentation
 
 ## Dependencies
 
+* `numpy`
+* `astropy`
+* `bs4`
+* `selenium`
