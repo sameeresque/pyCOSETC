@@ -14,6 +14,18 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import UnexpectedAlertPresentException
 import math
 
+cenwav_map = {'g130m':1310,'g160m':1602,'g140l':1282,'g185m':1835,'g225m':2135,'g285m':2850,'g230l':3000}
+choose_cenwav = {'g130m':[1055,1096,1222,1291,1300,1309,1318,1327],'g160m':[1533,1577,1589,1600,1611,1623]}
+
+g130m_band = {'1055':[924,1040,1056,1195],'1096':[941,1080,1097,1236],
+             '1222':[1069,1207,1223,1363],'1291':[1137,1274,1292,1432],
+             '1300':[1147,1283,1302,1441],'1309':[1154,1293,1310,1448],
+             '1318':[1164,1303,1319,1459],'1327':[1173,1312,1328,1468]}
+
+g160m_band = {'1533':[1342,1515,1533,1707],'1577':[1387,1557,1578,1749],
+             '1589':[1398,1567,1590,1761],'1600':[1411,1580,1602,1772],
+             '1611':[1421,1592,1612,1784],'1623':[1434,1604,1625,1796]}
+
 def getdust(ra_deg,dec_deg):
     table = IrsaDust.get_query_table("{} {}".format(ra_deg,dec_deg), radius=2 * u.deg,section='ebv')
     return table['ext SandF mean'].quantity[0]
