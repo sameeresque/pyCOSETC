@@ -13,6 +13,10 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import UnexpectedAlertPresentException
 import math
+import chromepaths
+
+binary_location = chromepaths.binary_location
+driver_location = chromepaths.driver_location
 
 cenwav_map = {'g130m':1310,'g160m':1602,'g140l':1282,'g185m':1835,'g225m':2135,'g285m':2850,'g230l':3000}
 choose_cenwav = {'g130m':[1055,1096,1222,1291,1300,1309,1318,1327],'g160m':[1533,1577,1589,1600,1611,1623]}
@@ -79,9 +83,9 @@ def cosetc(detector,grating,snrval,redshift_qso,qso_ra,qso_dec,redshift_abs,fuvv
         options=Options()
         options.headless = False
 
-        options.binary_location = "/usr/bin/google-chrome"
+        options.binary_location = binary_location
 
-        driver = webdriver.Chrome('/home/sameer/Downloads/chromedriver_linux64/chromedriver',chrome_options=options)
+        driver = webdriver.Chrome(driver_location,chrome_options=options)
 
         driver.get("https://etc.stsci.edu/etc/input/cos/spectroscopic/")
         
