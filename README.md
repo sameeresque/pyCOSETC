@@ -19,4 +19,4 @@ Ensure version match of your Google Chrome. It can be found under Settings > Abo
 
 ## Setup
 
-Edit the chromepaths.py file (located inside `etc` folder) to point to the paths of both the chrome driver and chrome binary location. 
+Edit the chromepaths.py file (located inside `etc` folder) to point to the paths of both the Chrome driver and Chrome binary location. 

@@ -31,51 +31,70 @@ g160m_band = {'1533':[1342,1515,1533,1707],'1577':[1387,1557,1578,1749],
              '1611':[1421,1592,1612,1784],'1623':[1434,1604,1625,1796]}
 
 def getdust(ra_deg,dec_deg):
+    """
+    Function to fetch the extinction value
+
+    Parameters
+    ----------
+    ra_deg : float
+        RA of the source of interest in degrees.
+
+    dec_deg: float
+        DEC of the source of interest in degrees.
+
+    Returns
+    -------
+    tuple
+        Extinction value E(B-V).
+    """
+    
     table = IrsaDust.get_query_table("{} {}".format(ra_deg,dec_deg), radius=2 * u.deg,section='ebv')
     return table['ext SandF mean'].quantity[0]
 
 
-def cosetc(detector,grating,snrval,redshift_qso,qso_ra,qso_dec,redshift_abs,fuvval,wav_int):
+def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,redshift_abs,fuvval,wav_int):
     """
     Exposure time calculator for COS G130M/G160M gratings 
     
     Parameters
     ----------
     detector : str
-    "fuv"
+        "fuv" (currently only setup for FUV)
     
     grating : str
-    
-    "g130m" or "g160m" 
+        Valid values: "g130m", "g160m" 
     
     snrval : float
-    
-    exposure time is calculated for this SNR
-    
-    extinction: float
-    
-    value of extinction in the direction of source
-    
+        exposure time is calculated for this desired SNR.
+
+    apeturetype: str
+        Valid values: "PSA", "BOA"
+        PSA stands for Primary Sciene Aperture. BOA stands for Bright Object Aperture.
+        
     redshift_qso: float
+        Redshift of the QSO or the object of interest.
     
-    Redshift of the background source
-    
+    qso_ra: float
+        RA in degrees needed for determining the extinction.
+
+    qso_dec: float
+        DEC in degrees
+
     redshift_abs: float
-    
-    Redshift of the foreground object
-    
+        Redshift of the foreground object which is used to determine the observed wavelength at which required SNR is to be reached.
+        
     fuvval: float
-    
-    FUV Magnitude
+        FUV magnitudes from GALEX or from UV spectra if available. 
     
     wav_int: integer
-    
-    wavelength of interest
+        Rest wavelength of the transition of interest at which the required SNR is to be reached.
     
 
     Returns
     -------
-    Exposure time in seconds
+    tuple
+        Exposure time in seconds and the rounded-up number of HST orbits. The HST orbits are determined using 49 minutes per orbits, which assumes overheads due to guide star acquisition, peak-up, reacquisition,
+        instrument setting changes.
     """
 
     
@@ -97,6 +116,12 @@ def cosetc(detector,grating,snrval,redshift_qso,qso_ra,qso_dec,redshift_abs,fuvv
         choose_wav =  min(choose_cenwav[grating], key=lambda x:abs(x-obs_wav))
 
         select.select_by_value('{}'.format(choose_wav))
+
+        
+        select=Select(driver.find_element("name",'cosaperture0'))
+        select.select_by_value('{}'.format(aperturetype))
+        
+
 
         driver.find_element("xpath",".//input[@type='radio' and @value='Time']").click()
 
