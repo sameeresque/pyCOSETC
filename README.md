@@ -1,5 +1,5 @@
 # pyETC
-HST-COS Exposure Time Calculator (ETC) for a combination of detector, grating, and an aperture
+HST-COS Exposure Time Calculator (ETC)
 
 ## Installation
 Refer to the [Installation](Installation.md) documentation
