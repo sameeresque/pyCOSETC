@@ -25,6 +25,7 @@ Edit the `chromepaths.py` file (located inside `etc` folder) to point to the pat
 
 ```
 import etc
+help(etc.cosetc)
 etc.cosetc(detector="fuv",grating = "g130m",aperturetype="PSA",snrval=12.0,redshift_qso=0.1,qso_ra=8.565,qso_dec=35.902,redshift_abs=0,fuvval=19.0,wav_int=1206)
 ```
 
