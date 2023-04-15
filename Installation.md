@@ -11,5 +11,12 @@ pip install git+https://github.com/sameeresque/pyETC.git
 Add the full path to the `pyETC` code to your `$PYTHONPATH` variable by invoking 
 
 ```
-export PYTHONPATH="$PYTHONPATH:/path/to/pyETC/"
+export PYTHONPATH="$PYTHONPATH:/path/to/pyETC/etc/"
 ```
+
+## **To Uninstall pyETC**
+
+```
+pip uninstall pyETC
+```
+
