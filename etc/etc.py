@@ -93,7 +93,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
     Returns
     -------
     tuple
-        Exposure time in seconds and the rounded-up number of HST orbits. The HST orbits are determined using 49 minutes per orbits, which assumes overheads due to guide star acquisition, peak-up, reacquisition,
+        Exposure time in seconds and the rounded-up number of HST orbits. The HST orbits are determined using (49+95) minutes per orbits, which assumes overheads due to guide star acquisition, peak-up, reacquisition,
         instrument setting changes.
     """
 
@@ -242,7 +242,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         
         #returns the time in seconds and number of orbits.
         try:
-            return float(time.split(',')[0]+time.split(',')[1]),math.ceil(float(time.split(',')[0]+time.split(',')[1])/60./49.)
+            return float(time.split(',')[0]+time.split(',')[1]),math.ceil(float(time.split(',')[0]+time.split(',')[1])/60./(49.+95.0))
         except:
             return float(time),math.ceil(float(time)/60./49.)
         
