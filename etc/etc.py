@@ -92,9 +92,8 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
     Returns
     -------
-    tuple
-        Exposure time in seconds and the rounded-up number of HST orbits. The HST orbits are determined using (49+95) minutes per orbits, which assumes overheads due to guide star acquisition, peak-up, reacquisition,
-        instrument setting changes.
+    float
+        Exposure time in seconds.
     """
 
     
