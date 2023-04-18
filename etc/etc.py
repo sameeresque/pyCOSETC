@@ -242,9 +242,9 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         
         #returns the time in seconds and number of orbits.
         try:
-            return float(time.split(',')[0]+time.split(',')[1]),math.ceil((float(time.split(',')[0]+time.split(',')[1])+49*60.0)/60./95.)
+            return float(time.split(',')[0]+time.split(',')[1])
         except:
-            return float(time),math.ceil((float(time)+49*60.0)/60.0/95.0)
+            return float(time)
         
     except (UnexpectedAlertPresentException,AttributeError) as e:
         print (e)
