@@ -13,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import UnexpectedAlertPresentException
 import math
+import re
 import chromepaths
 
 binary_location = chromepaths.binary_location
@@ -92,8 +93,16 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
     Returns
     -------
-    float
-        Exposure time in seconds.
+    tuple
+        Request ID: int
+        This ID can be used to recheck your calculation by using the web interface for any tweaks.
+
+        Time on Source: float
+        time on source for the request S/N at the observed wavelength.
+
+        Buffer Time: float
+        Buffer Time A: float
+        Buffer Time B: float
     """
 
     
@@ -235,15 +244,31 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
         soup = BeautifulSoup(driver.page_source)
         ps=soup.find_all('p')
-
+        requestid = int(re.findall(r'\d+',ps[0].text)[0])
+        
+        td=soup.find_all('td')
         
         time = ps[2].string.split(' ')[3]
-        
-        #returns the time in seconds and number of orbits.
         try:
-            return float(time.split(',')[0]+time.split(',')[1])
+            timeonsource = float(time.split(',')[0]+time.split(',')[1])
         except:
-            return float(time)
+            timeonsource = float(time)
+        
+        try:
+            buffertime = float(td[62].text.split(',')[0]+td[62].text.split(',')[1])
+        except:
+            buffertime = float(td[62].text[0])
+        try:
+            buffertime_a = float(td[64].text.split(',')[0]+td[64].text.split(',')[1])
+        except:
+            buffertime_a = float(td[64].text[0])
+        try:
+            buffertime_b = float(td[66].text.split(',')[0]+td[66].text.split(',')[1])
+        except:
+            buffertime_b = float(td[66].text[0])
+            
+        return requestid, timeonsource, buffertime, buffertime_a, buffertime_b
+
         
     except (UnexpectedAlertPresentException,AttributeError) as e:
         print (e)
