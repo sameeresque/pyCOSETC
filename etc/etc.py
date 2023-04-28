@@ -95,7 +95,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
     -------
     tuple
         Request ID: int
-        This ID can be used to recheck your calculation by using the web interface for any tweaks.
+        This ID can be used to check your simulation by using the web interface, and manually adjust that particular simulation run.
 
         Time on Source: float
         time on source for the request S/N at the observed wavelength.
