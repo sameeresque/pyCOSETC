@@ -242,7 +242,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
         driver.find_element("xpath",".//input[@type='button' and @value='Submit Simulation']").click()
 
-        soup = BeautifulSoup(driver.page_source)
+        soup = BeautifulSoup(driver.page_source,"lxml")
         ps=soup.find_all('p')
         requestid = int(re.findall(r'\d+',ps[0].text)[0])
         
