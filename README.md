@@ -41,4 +41,6 @@ etc.cosetc(detector="fuv",grating = "g130m",aperturetype="PSA",snrval=12.0,redsh
 * Air Glow: Average
 
 
-https://user-images.githubusercontent.com/16863470/235333711-60ff37ad-6be1-4d67-b15d-db96304f23e4.mp4
+https://user-images.githubusercontent.com/16863470/235333778-5b0dff1b-6f62-4118-9d5b-8b91291d0eaa.mp4
+
+
