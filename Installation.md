@@ -12,7 +12,7 @@ pip install .
 
 ## **Include `pyETC` in your `$PYTHONPATH`:**
 
-Add the full path to the `pyETC` code to your `$PYTHONPATH` variable by invoking 
+Add the full path to the `pyETC` code to your `$PYTHONPATH` variable by invoking, or better yet add the path to .bashrc file
 
 ```
 export PYTHONPATH="$PYTHONPATH:/path/to/pyETC/etc/"
