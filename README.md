@@ -1,5 +1,5 @@
 # pyETC
-This is a tool to scrape information from the [exposure time calculator](https://etc.stsci.edu/etc/input/cos/spectroscopic/) website hosted by STScI. It is intented to provide a convenient way to perform the task of clicks and selections without the user having to interact with the web interface, allowing one to perform repeated simulations for various parameter settings/multiple objects/both. Currently, this is only setup for use with COS G130M and G160M gratings. It returns the COS request ID, time on source, and buffer times. See help for more information.
+This is a tool to scrape information from the [exposure time calculator](https://etc.stsci.edu/etc/input/cos/spectroscopic/) website hosted by STScI. It is intented to provide a convenient and automated way to perform the task of clicks, inputs, and selections without the user having to interact with the web interface, allowing one to perform repeated simulations for various parameter settings/multiple objects/both. Currently, this is only setup for use with COS G130M and G160M gratings. It returns the COS request ID, time on source, and buffer times. See help for more information.
 
 ## Installation
 Refer to the [Installation](Installation.md) documentation
