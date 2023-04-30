@@ -40,3 +40,7 @@ etc.cosetc(detector="fuv",grating = "g130m",aperturetype="PSA",snrval=12.0,redsh
 * Zodiacal Light: Average
 * Air Glow: Average
 
+
+https://user-images.githubusercontent.com/16863470/235332243-902597f8-fe85-423d-bcc9-3e38dbf70721.mp4
+
+
