@@ -9,6 +9,7 @@ Refer to the [Installation](Installation.md) documentation
 This program sends HTTP requests to the source website using Selenium and then parses the HTML content using Beautiful Soup. Astroquery is used to determine the extinction value in the direction of object of interest. 
 
 * `numpy`
+* `astropy`
 * `astroquery`
 * `bs4`
 * `selenium`
