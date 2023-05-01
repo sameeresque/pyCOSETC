@@ -17,5 +17,5 @@ setuptools.setup(
     },
     license='MIT',
     packages=['etc'],
-    install_requires=['numpy','astropy','bs4','selenium'],
+    install_requires=['numpy','astropy','astroquery','bs4','selenium'],
 )

@@ -1,10 +1,7 @@
 import numpy as np
-from astropy.coordinates import SkyCoord
-from astropy import units as u
-from astropy.cosmology import FlatLambdaCDM
 from astroquery.irsa_dust import IrsaDust
-import astropy.units as u
 from bs4 import BeautifulSoup
+from astropy import units as u
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
