@@ -199,7 +199,7 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
         febv.send_keys('{}'.format(val))
 
         select=Select(driver.find_element("name",'fextinctiontype'))
-        select.select_by_value('after')
+        select.select_by_value('before')
 
 
         # The SED is redshifted based on this value.
