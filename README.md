@@ -48,4 +48,4 @@ https://user-images.githubusercontent.com/16863470/235333778-5b0dff1b-6f62-4118-
 
 ## Acknowledgement & Copyright
 
-The information retrieved by this code is obtained by scraping data from the [COS Spectroscopy ETC](https://etc.stsci.edu/etc/input/cos/spectroscopic/). We acknowledge and respect the intellectual property rights of the source website and the authors of the content we have scraped. No copyright infringement is intended in this repository. The content used here abides by the content [use policy of the source](https://www.stsci.edu/copyright).
+The information retrieved by this code is obtained by scraping data from the [COS Spectroscopy ETC](https://etc.stsci.edu/etc/input/cos/spectroscopic/). The content used here abides by the content [use policy of the source](https://www.stsci.edu/copyright).
