@@ -150,9 +150,9 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
             if (obs_wav < g130m_band[str(choose_wav)][2]) and (obs_wav > g130m_band[str(choose_wav)][1]):
                 if ind == 2:
-                    val = (g130m_band[str(choose_wav)][2]+g130m_band[str(choose_wav)][3])*0.5
+                    val = min([g130m_band[str(choose_wav)][2]+1.0,g130m_band[str(choose_wav)][3]-1.0], key=lambda x:abs(x-obs_wav))
                 else:
-                    val = (g130m_band[str(choose_wav)][0]+g130m_band[str(choose_wav)][1])*0.5
+                    val = min([g130m_band[str(choose_wav)][0]+1.0,g130m_band[str(choose_wav)][1]-1.0], key=lambda x:abs(x-obs_wav))
             else:
                 val = obs_wav
 
@@ -164,9 +164,9 @@ def cosetc(detector,grating,aperturetype,snrval,redshift_qso,qso_ra,qso_dec,reds
 
             if (obs_wav < g160m_band[str(choose_wav)][2]) and (obs_wav > g160m_band[str(choose_wav)][1]):
                 if ind == 2:
-                    val = (g160m_band[str(choose_wav)][2]+g160m_band[str(choose_wav)][3])*0.5
+                    val = min([g160m_band[str(choose_wav)][2]+1.0,g160m_band[str(choose_wav)][3]-1.0], key=lambda x:abs(x-obs_wav))
                 else:
-                    val = (g160m_band[str(choose_wav)][0]+g160m_band[str(choose_wav)][1])*0.5
+                    val = min([g160m_band[str(choose_wav)][0]+1.0,g160m_band[str(choose_wav)][1]-1.0], key=lambda x:abs(x-obs_wav))
             else:
                 val = obs_wav
 
