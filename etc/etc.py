@@ -16,7 +16,6 @@ import chromepaths
 binary_location = chromepaths.binary_location
 driver_location = chromepaths.driver_location
 
-cenwav_map = {'g130m':1310,'g160m':1602,'g140l':1282,'g185m':1835,'g225m':2135,'g285m':2850,'g230l':3000}
 choose_cenwav = {'g130m':[1055,1096,1222,1291,1300,1309,1318,1327],'g160m':[1533,1577,1589,1600,1611,1623]}
 
 g130m_band = {'1055':[924,1040,1056,1195],'1096':[941,1080,1097,1236],

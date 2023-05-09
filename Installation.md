@@ -1,26 +1,26 @@
-# pyETC: Installing `pyETC`
+# pyCOSETC: Installing `pyCOSETC`
 
 ## **Download from GitHub and install via `pip`:**
 
 ```
-git clone https://github.com/sameeresque/pyETC/
-cd pyETC
+git clone https://github.com/sameeresque/pyCOSETC/
+cd pyCOSETC
 pip install .
 
 (Note: pip will use setup.py to install your module. Avoid calling setup.py directly.)
 ```
 
-## **Include `pyETC` in your `$PYTHONPATH`:**
+## **Include `pyCOSETC` in your `$PYTHONPATH`:**
 
-Add the full path to the `pyETC` code to your `$PYTHONPATH` variable by invoking, or better yet add the path to .bashrc and .profile files
-
-```
-export PYTHONPATH="$PYTHONPATH:/path/to/pyETC/etc/"
-```
-
-## **To Uninstall pyETC**
+Add the full path to the `pyCOSETC` code to your `$PYTHONPATH` variable by invoking, or better yet add the path to .bashrc and .profile files
 
 ```
-pip uninstall pyETC
+export PYTHONPATH="$PYTHONPATH:/path/to/pyCOSETC/etc/"
+```
+
+## **To Uninstall pyCOSETC**
+
+```
+pip uninstall pyCOSETC
 ```
 
